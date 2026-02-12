@@ -57,68 +57,93 @@
             </section>             
             <!-- Two -->             
             <section id="two"> 
-                <h2 id="projects-title">PROJECTS</h2> 
-                <div class="row"> 
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt=""></a> 
-                        <h3>Magna sed consequat tempus</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt=""></a> 
-                        <h3>Ultricies lacinia interdum</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
+                <h2 id="projects-title">PROJECTS</h2>
+                <div class="projects-grid" aria-label="Project list">
+                    <article class="project-card">
+                        <h3 class="project-title">Distributed Log Storage Engine</h3>
+                        <p class="project-meta">Sep 2025 – Jan 2026 | Linux / C++</p>
+                        <p class="project-description">Implemented a replicated log storage engine focused on consistency and predictable recovery. Designed write-ahead logging, compaction scheduling, and corruption detection to improve reliability under node failures.</p>
+                        <a href="#" class="button small">View Details</a>
+                    </article>
+                    <article class="project-card">
+                        <h3 class="project-title">Embedded Motor Control Platform</h3>
+                        <p class="project-meta">Mar 2025 – Aug 2025 | STM32 / FreeRTOS</p>
+                        <p class="project-description">Built a real-time motor control stack with deterministic task scheduling and UART/CAN diagnostics. Optimized interrupt paths and telemetry buffering to keep control latency stable during stress testing.</p>
+                        <a href="#" class="button small">View Details</a>
+                    </article>
+                    <article class="project-card">
+                        <h3 class="project-title">Campus Navigation Service</h3>
+                        <p class="project-meta">Oct 2024 – Feb 2025 | Web / Node.js</p>
+                        <p class="project-description">Developed a route recommendation service with map indexing and time-aware path scoring. Added caching and fallback strategies to keep response times fast under peak concurrent requests.</p>
+                        <a href="#" class="button small">View Details</a>
+                    </article>
+                    <article class="project-card">
+                        <h3 class="project-title">Performance Profiling Toolkit</h3>
+                        <p class="project-meta">May 2024 – Sep 2024 | Python / Linux</p>
+                        <p class="project-description">Created a profiling toolkit that aggregates CPU, memory, and I/O traces into concise reports. Introduced anomaly tagging and regression snapshots to help teams identify performance drift quickly.</p>
+                        <a href="#" class="button small">View Details</a>
+                    </article>
                 </div>
-                <div class="row"> 
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt=""></a> 
-                        <h3>Magna sed consequat tempus</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt=""></a> 
-                        <h3>Ultricies lacinia interdum</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                </div>
-                <div class="row"> 
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt=""></a> 
-                        <h3>Magna sed consequat tempus</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt=""></a> 
-                        <h3>Ultricies lacinia interdum</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                </div>                 
-                <ul class="actions"> 
-                    <li>
-                        <a href="#" class="button">View Projects</a>
-                    </li>                     
-                </ul>                 
             </section>
             <section id="two"> 
                 <h2 id="skills-title">TECHNICAL SKILLS</h2>
-                <div class="row"> 
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt=""></a> 
-                        <h3>Magna sed consequat tempus</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt=""></a> 
-                        <h3>Ultricies lacinia interdum</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                </div>                 
-                <ul class="actions"> 
-                    <li>
-                        <a href="#" class="button">Full Portfolio</a>
-                    </li>                     
-                </ul>                 
+                <div class="skills-grid" aria-label="Technical skills by domain">
+                    <article class="skill-domain-card">
+                        <h3 class="skill-domain-title">Embedded Systems</h3>
+                        <p class="skill-domain-summary">Real-time firmware development, hardware bring-up, and peripheral integration for reliable edge devices.</p>
+                        <ul class="skill-tags" aria-label="Embedded Systems skills">
+                            <li><span class="skill-tag">STM32</span></li>
+                            <li><span class="skill-tag">Raspberry Pi</span></li>
+                            <li><span class="skill-tag">Embedded Linux</span></li>
+                            <li><span class="skill-tag">FreeRTOS</span></li>
+                            <li><span class="skill-tag">SPI / I2C</span></li>
+                        </ul>
+                    </article>
+                    <article class="skill-domain-card">
+                        <h3 class="skill-domain-title">Digital Design &amp; FPGA</h3>
+                        <p class="skill-domain-summary">RTL implementation and timing-aware verification for deterministic digital hardware systems.</p>
+                        <ul class="skill-tags" aria-label="Digital Design and FPGA skills">
+                            <li><span class="skill-tag">Verilog</span></li>
+                            <li><span class="skill-tag">SystemVerilog</span></li>
+                            <li><span class="skill-tag">Vivado</span></li>
+                            <li><span class="skill-tag">Quartus</span></li>
+                            <li><span class="skill-tag">Timing Analysis</span></li>
+                        </ul>
+                    </article>
+                    <article class="skill-domain-card">
+                        <h3 class="skill-domain-title">Software Engineering</h3>
+                        <p class="skill-domain-summary">Structured backend and systems code with focus on maintainability, testing, and clear architecture.</p>
+                        <ul class="skill-tags" aria-label="Software Engineering skills">
+                            <li><span class="skill-tag">C++</span></li>
+                            <li><span class="skill-tag">Python</span></li>
+                            <li><span class="skill-tag">Node.js</span></li>
+                            <li><span class="skill-tag">REST API</span></li>
+                            <li><span class="skill-tag">Unit Testing</span></li>
+                        </ul>
+                    </article>
+                    <article class="skill-domain-card">
+                        <h3 class="skill-domain-title">Data &amp; Storage</h3>
+                        <p class="skill-domain-summary">Data modeling and storage optimization for stable throughput and reliable query performance.</p>
+                        <ul class="skill-tags" aria-label="Data and Storage skills">
+                            <li><span class="skill-tag">SQLite</span></li>
+                            <li><span class="skill-tag">PostgreSQL</span></li>
+                            <li><span class="skill-tag">Schema Design</span></li>
+                            <li><span class="skill-tag">Index Tuning</span></li>
+                            <li><span class="skill-tag">Redis</span></li>
+                        </ul>
+                    </article>
+                    <article class="skill-domain-card">
+                        <h3 class="skill-domain-title">Dev Tools &amp; Workflow</h3>
+                        <p class="skill-domain-summary">Collaborative engineering workflow with automation, versioning, and reproducible build practices.</p>
+                        <ul class="skill-tags" aria-label="Dev Tools and Workflow skills">
+                            <li><span class="skill-tag">Git</span></li>
+                            <li><span class="skill-tag">Linux CLI</span></li>
+                            <li><span class="skill-tag">Docker</span></li>
+                            <li><span class="skill-tag">CMake</span></li>
+                            <li><span class="skill-tag">CI/CD</span></li>
+                        </ul>
+                    </article>
+                </div>
             </section>
             <section id="two"> 
                 <h2 id="other-title">OTHER</h2> 
