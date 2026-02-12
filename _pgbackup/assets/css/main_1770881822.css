@@ -3337,6 +3337,7 @@ html {
     border-radius: 2px;
 }
 
+
 /* Project Section Redesign - text card layout */
 .projects-grid {
     display: grid;
@@ -3386,68 +3387,3 @@ html {
         gap: 1.1em;
     }
 }
-
-/* Technical Skills - minimal title + code-ish tags */
-.skill-domain-card {
-    margin: 0 0 2em 0;
-}
-
-.skill-domain-title {
-    margin: 0 0 0.85em 0;
-    font-size: 1.05em;
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-}
-
-/* Tag list as a compact row that wraps */
-.skill-tags {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55em;
-}
-
-/* Each tag looks like a subtle code chip */
-.skill-tag {
-    list-style: none;
-    display: inline-flex;
-    align-items: center;
-    padding: 0.34em 0.65em;
-    border-radius: 0.45em;
-    border: 2px solid #efefef;
-
-    /* matches theme borders */
-    background: #f7f7f7;
-
-    /* matches theme code/input bg */
-    color: #787878;
-
-    /* matches theme heading tone */
-    font-family: "Courier New", monospace;
-    font-size: 0.85em;
-    line-height: 1.25;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    box-shadow: 0 0.12em 0.35em rgba(0, 0, 0, 0.06);
-}
-
-/* Hover: subtle brand accent (same as link color) */
-.skill-tag:hover {
-    border-color: #619be2;
-    color: #619be2;
-    background: rgba(97, 155, 226, 0.08);
-}
-
-/* Mobile: keep spacing comfortable */
-@media screen and (max-width: 736px) {
-    .skill-domain-title {
-        margin-bottom: 0.75em;
-    }
-
-    .skill-tag {
-        font-size: 0.82em;
-    }
-}
-
