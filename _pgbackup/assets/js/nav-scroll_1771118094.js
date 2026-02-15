@@ -32,14 +32,6 @@
   }
 
   function findActiveIdByScroll() {
-    // ✅ 方案 B：到达页面底部时，强制点亮最后一个导航项（避免最后一个 section 无法滚到顶导致回跳）
-    const bottomSlack = 4; // 容错像素：越小越严格
-    const atBottom =
-      window.innerHeight + window.scrollY >=
-      document.documentElement.scrollHeight - bottomSlack;
-
-    if (atBottom) return targets[targets.length - 1].id;
-
     if (window.scrollY <= 4) return targets[0].id;
 
     const anchorLine = window.innerHeight * 0.28;
@@ -60,10 +52,16 @@
   function syncActiveByScroll() {
     if (manualScrollTargetId) {
       const manualTarget = targets.find((item) => item.id === manualScrollTargetId)?.target;
-      if (manualTarget && Math.abs(manualTarget.getBoundingClientRect().top) < 8) {
+    if (manualTarget) {
+      const top = manualTarget.getBoundingClientRect().top;
+      const anchorLine = window.innerHeight * 0.28;
+      // 只要目标 section 顶部进入 anchorLine 以上，就认为到达
+      if (top <= anchorLine + 8) {
         setActiveById(manualScrollTargetId);
         clearManualScrollLock();
       }
+    }
+
       return;
     }
 

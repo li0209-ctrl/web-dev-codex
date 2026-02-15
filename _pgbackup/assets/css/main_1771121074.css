@@ -1,7 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
-@import url(pages.css);
-@import url(reflections.css);
+@import url("pages.css");
 
 /* Strata by Pixelarity
 	pixelarity.com | hello@pixelarity.com
@@ -3606,4 +3605,102 @@ html {
 
     /* 透明度控制水印感 */
     z-index: 0;
+}
+
+/* =========================
+   Subpage Layout: General
+   ========================= */
+body.subpage {
+    --sub-sidebar: 28%;
+    --sub-main-max: 62em;
+    --sub-pad-y: 7em;
+    --sub-pad-x: 3.25em;
+
+    /* 允许每个辅页覆盖自己的背景图 */
+    --sub-header-bg: url("../../images/background/sky.jpg");
+}
+
+/* Reduce sidebar ratio (only on subpage) */
+body.subpage #header {
+    width: var(--sub-sidebar);
+    padding: var(--sub-pad-y) var(--sub-pad-x);
+
+    /* 通用：sidebar 背景永远 cover，避免露底色 */
+    height: 100vh;
+    background-image: url("images/overlay.png"),
+    var(--sub-header-bg);
+    background-size: auto, cover;
+    background-position: top left, center center;
+    background-repeat: repeat, no-repeat;
+}
+
+/* Main follows reduced sidebar */
+body.subpage #main {
+    margin-left: var(--sub-sidebar);
+    width: calc(100% - var(--sub-sidebar));
+    max-width: var(--sub-main-max);
+    padding: var(--sub-pad-y) var(--sub-pad-x) 4em var(--sub-pad-x);
+}
+
+/* Optional: section spacing (general default) */
+body.subpage #main > section {
+    margin-top: 3.2em;
+    padding-top: 3.2em;
+}
+
+/* ===== Subpage Navigator (General) ===== */
+body.subpage .subpage-nav {
+    margin-top: 1.5em;
+}
+
+body.subpage .subpage-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body.subpage .subpage-nav li {
+    margin: 0.45em 0;
+}
+
+/* Link as pill row */
+body.subpage .subpage-nav a {
+}
+
+/* 你原来的保持不变 */
+body.subpage .subpage-nav a:hover {
+}
+
+body.subpage .subpage-nav a.active {
+}
+
+body.subpage .subpage-nav a.active::before {
+}
+
+/* Breakpoints */
+@media screen and (max-width: 1280px) {
+    body.subpage {
+        --sub-sidebar: 26%;
+        --sub-pad-y: 6em;
+        --sub-pad-x: 3em;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    body.subpage #header {
+        width: 100%;
+        padding: 6em 4em;
+        height: auto;
+    }
+
+    body.subpage #main {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+        padding: 6em 4em;
+    }
+}
+
+body.subpage-essays {
+    --sub-header-bg: url("../../images/background/sky.jpg");
 }

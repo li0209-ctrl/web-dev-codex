@@ -13,22 +13,10 @@
 		settings = {
 
 			// Parallax background effect?
-			parallax: true,
+				parallax: true,
 
-			// Parallax factor range (lower = more intense, higher = less intense).
-			parallaxFactorMin: 20,
-			parallaxFactorMax: 200,
-
-			// Controls how fast factor grows with page length.
-			// Smaller => grows faster; Larger => grows slower.
-			parallaxScalePx: 1500,
-
-			// Compute adaptive parallax factor based on page scrollable length.
-			getParallaxFactor: function() {
-				var totalScrollable = Math.max(1, $(document).height() - $window.height());
-				var t = Math.min(1, totalScrollable / this.parallaxScalePx); // clamp 0..1
-				return this.parallaxFactorMin + t * (this.parallaxFactorMax - this.parallaxFactorMin);
-			}
+			// Parallax factor (lower = more intense, higher = less intense).
+				parallaxFactor: 20
 
 		};
 
@@ -88,15 +76,58 @@
 
 				});
 
+				// breakpoints.on('>medium', function() {
+
+				// 	$header.css('background-position', 'left 0px');
+
+				// 	$window.on('scroll.strata_parallax', function() {
+				// 		$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+				// 	});
+
+				// });
+
 				breakpoints.on('>medium', function() {
 
+				// If header has two backgrounds (overlay + image), keep overlay fixed and move only image layer.
+				// If it only has one background, fallback to old-style "left ypx".
+				var supportsMultiBg = false;
+				try {
+					var bgImg = $header.css('background-image') || '';
+					supportsMultiBg = (bgImg.indexOf(',') !== -1);
+				} catch (e) {}
+
+				// Init position
+				if (supportsMultiBg)
+					$header.css('background-position', 'top left, center 0px'); // overlay , image
+				else
 					$header.css('background-position', 'left 0px');
 
-					$window.on('scroll.strata_parallax', function() {
-						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.getParallaxFactor())) + 'px');
-					});
+				// Adaptive parallax: normalize by total scrollable length
+				$window.off('scroll.strata_parallax').on('scroll.strata_parallax', function() {
+
+					var scrollY = $window.scrollTop() || 0;
+
+					// Total scrollable distance; longer content => larger maxScroll => slower visual movement
+					var maxScroll = Math.max(1, $(document).height() - $window.height());
+
+					// 0..1 progress
+					var t = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+					// Maximum background shift (px): controls "how much" the image can move overall
+					// You can tune this; 180~320 is a good range.
+					var maxShift = 220;
+
+					var y = Math.round(-t * maxShift);
+
+					if (supportsMultiBg)
+						$header.css('background-position', 'top left, center ' + y + 'px');
+					else
+						$header.css('background-position', 'left ' + y + 'px');
 
 				});
+
+			});
+
 
 				$window.on('load', function() {
 					$window.triggerHandler('scroll');

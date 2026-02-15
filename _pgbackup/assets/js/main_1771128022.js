@@ -13,22 +13,10 @@
 		settings = {
 
 			// Parallax background effect?
-			parallax: true,
+				parallax: true,
 
-			// Parallax factor range (lower = more intense, higher = less intense).
-			parallaxFactorMin: 20,
-			parallaxFactorMax: 200,
-
-			// Controls how fast factor grows with page length.
-			// Smaller => grows faster; Larger => grows slower.
-			parallaxScalePx: 1500,
-
-			// Compute adaptive parallax factor based on page scrollable length.
-			getParallaxFactor: function() {
-				var totalScrollable = Math.max(1, $(document).height() - $window.height());
-				var t = Math.min(1, totalScrollable / this.parallaxScalePx); // clamp 0..1
-				return this.parallaxFactorMin + t * (this.parallaxFactorMax - this.parallaxFactorMin);
-			}
+			// Parallax factor (lower = more intense, higher = less intense).
+				parallaxFactor: 20
 
 		};
 
@@ -93,9 +81,9 @@
 					$header.css('background-position', 'left 0px');
 
 					$window.on('scroll.strata_parallax', function() {
-						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.getParallaxFactor())) + 'px');
+						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / 100)) + 'px');
 					});
-
+// settings.parallaxFactor
 				});
 
 				$window.on('load', function() {

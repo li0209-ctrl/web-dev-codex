@@ -13,22 +13,10 @@
 		settings = {
 
 			// Parallax background effect?
-			parallax: true,
+				parallax: true,
 
-			// Parallax factor range (lower = more intense, higher = less intense).
-			parallaxFactorMin: 20,
-			parallaxFactorMax: 200,
-
-			// Controls how fast factor grows with page length.
-			// Smaller => grows faster; Larger => grows slower.
-			parallaxScalePx: 1500,
-
-			// Compute adaptive parallax factor based on page scrollable length.
-			getParallaxFactor: function() {
-				var totalScrollable = Math.max(1, $(document).height() - $window.height());
-				var t = Math.min(1, totalScrollable / this.parallaxScalePx); // clamp 0..1
-				return this.parallaxFactorMin + t * (this.parallaxFactorMax - this.parallaxFactorMin);
-			}
+			// Parallax factor (lower = more intense, higher = less intense).
+				parallaxFactor: 20
 
 		};
 
@@ -88,15 +76,22 @@
 
 				});
 
-				breakpoints.on('>medium', function() {
+$window.on('scroll.strata_parallax', function() {
 
-					$header.css('background-position', 'left 0px');
+	var scrollY = $window.scrollTop();
 
-					$window.on('scroll.strata_parallax', function() {
-						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.getParallaxFactor())) + 'px');
-					});
+	// 计算页面总可滚动长度
+	var totalScrollable = Math.max(1, $(document).height() - $window.height());
 
-				});
+	// 页面越长，这个值越大 → 整体移动比例越小
+	var adaptiveFactor = settings.parallaxFactor * (totalScrollable / 1000);
+
+	$header.css(
+		'background-position',
+		'left ' + (-1 * (scrollY / adaptiveFactor)) + 'px'
+	);
+
+});
 
 				$window.on('load', function() {
 					$window.triggerHandler('scroll');

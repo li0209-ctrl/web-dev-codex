@@ -1,0 +1,201 @@
+/* ------------------------------
+   Reflections Redesign (List Cards)
+   Natural / Minimal / Editorial
+   ------------------------------ */
+
+.reflections {
+  padding-top: 0; /* keep consistent with #main section spacing */
+}
+
+.reflections-header p {
+  max-width: 38em;
+}
+
+/* list layout */
+.reflections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6em;
+  margin-top: 1.4em;
+}
+
+/* card */
+.reflection-card {
+  display: grid;
+  grid-template-columns: 13.5em 1fr;
+  gap: 1.5em;
+  align-items: stretch;
+
+  border: solid 2px #efefef;
+  border-radius: 0.45em;
+  background: #fff;
+
+  padding: 1.25em;
+  box-shadow: 0 0.35em 1.1em rgba(0, 0, 0, 0.06);
+}
+
+/* fixed-size media (same size for every session) */
+.reflection-media {
+  position: relative;
+  display: block;
+  border-radius: 0.45em;
+  overflow: hidden;
+  border-bottom: none; /* remove dotted underline from <a> */
+
+  /* ensures consistent size even if images differ */
+  width: 100%;
+  aspect-ratio: 4 / 3; /* unified ratio (you can change to 16/10 or 3/2) */
+  background: #f7f7f7;
+}
+
+.reflection-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* key for consistent thumbnails */
+  display: block;
+}
+
+/* overlay button on hover */
+.reflection-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 0.45em 1.1em;
+  border-radius: 999px;
+  border: solid 2px rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.95);
+
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transition: opacity 0.18s ease-in-out;
+  pointer-events: none;
+}
+
+/* darken slightly on hover */
+.reflection-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transition: opacity 0.18s ease-in-out;
+}
+
+.reflection-media:hover::after {
+  opacity: 1;
+}
+
+.reflection-media:hover .reflection-overlay {
+  opacity: 1;
+}
+
+/* content */
+.reflection-body {
+  min-width: 0; /* allow text truncation */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reflection-meta {
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a2a2a2;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45em;
+  align-items: center;
+  margin-bottom: 0.6em;
+}
+
+.meta-chip {
+  padding: 0.18em 0.55em;
+  border-radius: 0.35em;
+  border: solid 1px #efefef;
+  background: #f7f7f7;
+  color: #787878;
+}
+
+.meta-sep {
+  opacity: 0.6;
+}
+
+.reflection-title {
+  margin: 0 0 0.55em 0;
+  font-size: 1.25em; /* fits your base type */
+  line-height: 1.35em;
+}
+
+.reflection-title a {
+  border-bottom: none;
+}
+
+/* lede: clamp to keep compact */
+.reflection-lede {
+  margin: 0 0 1em 0;
+  color: #787878;
+  font-size: 0.95em;
+  line-height: 1.75em;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 2-3 lines is ideal */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* actions */
+.reflection-actions {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.reflection-actions .button.small {
+  min-width: 8.5em;
+  border-width: 2px; /* slightly lighter than default 3px */
+  height: calc(2.4em + 4px);
+  line-height: 2.4em;
+  padding: 0 1.1em;
+}
+
+.reflection-link {
+  border-bottom: none;
+  font-size: 0.92em;
+  color: #619be2;
+  letter-spacing: 0.01em;
+}
+
+.reflection-link:hover {
+  color: #619be2 !important;
+}
+
+/* footer button */
+.reflections-footer {
+  margin-top: 2.2em;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* responsive */
+@media screen and (max-width: 980px) {
+  .reflection-card {
+    grid-template-columns: 1fr;
+  }
+
+  .reflection-media {
+    aspect-ratio: 16 / 9; /* on mobile, wider feels nicer */
+  }
+
+  .reflections-footer {
+    justify-content: center;
+  }
+}
+

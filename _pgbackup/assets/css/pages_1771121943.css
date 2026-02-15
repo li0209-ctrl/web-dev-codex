@@ -1,0 +1,114 @@
+/* =========================
+   Subpage Layout: Essays
+   ========================= */
+body.subpage-essays {
+    --sub-sidebar: 28%;
+    --sub-main-max: 62em;
+    --sub-pad-y: 7em;
+    --sub-pad-x: 3.25em;
+}
+
+/* Reduce sidebar ratio (only on subpage) */
+body.subpage-essays #header {
+    width: var(--sub-sidebar);
+    padding: var(--sub-pad-y) var(--sub-pad-x);
+}
+
+/* Main follows reduced sidebar */
+body.subpage-essays #main {
+    margin-left: var(--sub-sidebar);
+    width: calc(100% - var(--sub-sidebar));
+    max-width: var(--sub-main-max);
+    padding: var(--sub-pad-y) var(--sub-pad-x) 4em var(--sub-pad-x);
+}
+
+/* Optional: make section breathing room a bit tighter for essay pages */
+body.subpage-essays #main > section {
+    margin-top: 3.2em;
+    padding-top: 3.2em;
+}
+
+/* ===== Subpage Navigator (Essays TOC style) ===== */
+body.subpage-essays .subpage-nav {
+    margin-top: 1.5em;
+}
+
+body.subpage-essays .subpage-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body.subpage-essays .subpage-nav li {
+    margin: 0.45em 0;
+}
+
+/* Link as a subtle "pill" row */
+body.subpage-essays .subpage-nav a {
+    border-bottom: none;
+
+    /* remove dotted underline */
+    text-decoration: none;
+    display: block;
+    padding: 0.55em 0.75em 0.55em 0.9em;
+    border-radius: 0.55em;
+    color: rgba(255,255,255,0.70);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.92em;
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    outline: 1px solid rgba(255,255,255,0.06);
+    transition: transform 140ms ease, background 140ms ease, color 140ms ease, outline-color 140ms ease;
+}
+
+body.subpage-essays .subpage-nav a:hover {
+    color: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.07);
+    outline-color: rgba(255,255,255,0.10);
+    transform: translateX(2px);
+}
+
+/* Active state: left indicator + stronger text */
+body.subpage-essays .subpage-nav a.active {
+    color: rgba(255,255,255,0.96);
+    background: rgba(255,255,255,0.10);
+    outline-color: rgba(255,255,255,0.14);
+    font-weight: 600;
+}
+
+body.subpage-essays .subpage-nav a.active::before {
+    content: "";
+    position: absolute;
+    left: 0.45em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 1.25em;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.92);
+}
+
+/* Large breakpoint: a bit narrower sidebar */
+@media screen and (max-width: 1280px) {
+    body.subpage-essays {
+        --sub-sidebar: 26%;
+        --sub-pad-y: 6em;
+        --sub-pad-x: 3em;
+    }
+}
+
+/* Medium and below: keep template behavior (header becomes top bar) */
+@media screen and (max-width: 980px) {
+    body.subpage-essays #header {
+        width: 100%;
+        padding: 6em 4em;
+    }
+
+    body.subpage-essays #main {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+        padding: 6em 4em;
+    }
+}
