@@ -28,10 +28,10 @@
                             <a href="#projects">PROJECTS</a>
                         </li>
                         <li>
-                            <a href="#experiences">EXPERIENCES</a>
+                            <a href="#skills">SKILLS</a>
                         </li>
                         <li>
-                            <a href="#essays">ESSAYS</a>
+                            <a href="#experience">EXPERIENCE</a>
                         </li>
                         <li>
                             <a href="#contact">CONTACT</a>
@@ -53,12 +53,14 @@
                         <div class="edu-content">
                             <div class="edu-row">
                                 <div class="edu-main">
-                                    <div class="edu-school">University of Washington, Seattle<br>B.S. Electrical &amp; Computer Engineering (ECE)
-                                    </div>
+                                    <div class="edu-school">University of Washington, Seattle</div>
+                                    <div class="edu-degree">B.S. Electrical &amp; Computer Engineering (ECE)</div>
                                 </div>
                                 <div class="edu-meta">Sep 2022 - Mar 2026</div>
                             </div>
-                            <div class="edu-stats">GPA: 3.79 | Department GPA: 3.83</div>
+                            <div class="edu-stats">
+                                GPA 3.79 (Dept 3.83) · Dean’s List 2022–2024 · IEEE-HKN
+</div>
                             <div class="edu-focus" aria-label="Focus areas">
                                 <span class="edu-tag">Embedded Systems</span>
                                 <span class="edu-tag">Digital Design</span>
@@ -104,43 +106,47 @@
                     </article>
                 </div>
             </section>
-            <section id="experiences"> 
-                <h2>EXPERIENCES</h2>
-                <div class="skills-grid" aria-label="Technical skills by domain">
-                    <article class="skill-domain-card">
-                        <h3 class="skill-domain-title">Embedded Systems</h3>
-                        <ul class="skill-tags" aria-label="Embedded Systems skills">
-                            <li class="skill-tag">STM32</li>
-                            <li class="skill-tag">Raspberry Pi</li>
-                            <li class="skill-tag">Embedded Linux</li>
-                            <li class="skill-tag">FreeRTOS</li>
-                            <li class="skill-tag">SPI / I2C</li>
-                        </ul>
-                    </article>
-                    <article class="skill-domain-card">
-                        <h3 class="skill-domain-title">Digital Design & FPGA</h3>
-                        <ul class="skill-tags" aria-label="Embedded Systems skills">
-                            <li class="skill-tag">System Verilog</li>
-                            <li class="skill-tag">Vivado</li>
-                            <li class="skill-tag">Embedded Linux</li>
-                            <li class="skill-tag">FreeRTOS</li>
-                            <li class="skill-tag">SPI / I2C</li>
-                        </ul>
-                    </article>
-                    <article class="skill-domain-card">
-                        <h3 class="skill-domain-title">Software</h3>
-                        <ul class="skill-tags" aria-label="Embedded Systems skills">
-                            <li class="skill-tag">STM32</li>
-                            <li class="skill-tag">Raspberry Pi</li>
-                            <li class="skill-tag">Embedded Linux</li>
-                            <li class="skill-tag">FreeRTOS</li>
-                            <li class="skill-tag">SPI / I2C</li>
-                        </ul>
-                    </article>
+            <!-- Skills section start form here -->             
+            <section id="skills">
+                <h2>SKILLS</h2>
+                <div class="skilltree" aria-label="Skill tree mind map">
+                    <!-- SVG layer: curved branches -->
+                    <svg class="skilltree-lines" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+                        <!-- JS 会把路径插到这里 -->
+                        <g class="skilltree-paths"></g>
+                    </svg>
+                    <!-- Node layer -->
+                    <div class="skilltree-nodes">
+                        <!-- center -->
+                        <div class="skilltree-node skilltree-center" id="skilltree-center">
+                            <img src="images/avatar.jpg" alt="Luoqi Li"/>
+                        </div>
+                        <!-- domains (level 2) -->
+                        <button class="skilltree-node skilltree-domain" data-id="embedded" style="--x: 50%; --y: 16%;">Embedded Systems</button>
+                        <button class="skilltree-node skilltree-domain" data-id="fpga" style="--x: 82%; --y: 50%;">Digital Design & FPGA</button>
+                        <button class="skilltree-node skilltree-domain" data-id="software" style="--x: 50%; --y: 84%;">Software</button>
+                        <button class="skilltree-node skilltree-domain" data-id="tools" style="--x: 18%; --y: 50%;">Tools</button>
+                        <!-- skills (level 3) : Embedded -->
+                        <span class="skilltree-node skilltree-skill" data-parent="embedded" style="--x: 36%; --y: 8%;">STM32</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="embedded" style="--x: 50%; --y: 6%;">ESP32</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="embedded" style="--x: 64%; --y: 8%;">FreeRTOS</span>
+                        <!-- skills: FPGA -->
+                        <span class="skilltree-node skilltree-skill" data-parent="fpga" style="--x: 92%; --y: 36%;">SystemVerilog</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="fpga" style="--x: 94%; --y: 50%;">Vivado</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="fpga" style="--x: 92%; --y: 64%;">FPGA Debug</span>
+                        <!-- skills: Software -->
+                        <span class="skilltree-node skilltree-skill" data-parent="software" style="--x: 38%; --y: 92%;">Python</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="software" style="--x: 50%; --y: 94%;">C/C++</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="software" style="--x: 62%; --y: 92%;">Linux</span>
+                        <!-- skills: Tools -->
+                        <span class="skilltree-node skilltree-skill" data-parent="tools" style="--x: 8%; --y: 38%;">Git</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="tools" style="--x: 6%; --y: 50%;">SQLite</span>
+                        <span class="skilltree-node skilltree-skill" data-parent="tools" style="--x: 8%; --y: 62%;">Docker</span>
+                    </div>
                 </div>
             </section>
-            <section id="essays"> 
-                <h2>ESSAYS</h2> 
+            <section id="experience"> 
+                <h2>EXPERIENCE</h2> 
                 <div class="row"> 
                     <article class="col-6 col-12-xsmall work-item"> 
                         <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt=""></a> 
@@ -630,5 +636,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         <script src="assets/js/main.js"></script>         
         <script src="pgia/lib/pgia.js"></script>
         <script src="assets/js/nav-scroll.js"></script>
+        <script src="assets/js/skill-map.js"></script>
     </body>     
 </html>
