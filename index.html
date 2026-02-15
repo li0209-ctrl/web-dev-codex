@@ -134,26 +134,50 @@
                     </article>
                 </div>
             </section>
-            <section id="reflections"> 
-                <h2>REFLECTIONS</h2> 
-                <div class="row"> 
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="reflections.html#essay-1" class="image fit thumb"> <img src="images/reflections/01.jpg" alt=""></a> 
-                        <h3>Magna sed consequat tempus</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>
-                    <article class="col-6 col-12-xsmall work-item"> 
-                        <a href="reflections.html#essay-2" class="image fit thumb"> <img src="images/reflections/02.jpg" alt=""></a> 
-                        <h3>Ultricies lacinia interdum</h3> 
-                        <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> 
-                    </article>                     
-                </div>                 
-                <ul class="actions"> 
+            <section id="reflections" class="reflections-rail-section">
+                <h2>REFLECTIONS</h2>
+                <div class="reflections-rail" aria-label="Reflections preview carousel">
+                    <!-- Optional arrow buttons (desktop-friendly) -->
+                    <button class="rail-btn rail-prev" type="button" aria-label="Scroll reflections left">
+                        <span class="icon solid fa-angle-left"></span>
+                    </button>
+                    <div class="reflections-track" tabindex="0">
+                        <!-- Card 1 -->
+                        <article class="reflection-card">
+                            <a href="reflections.html#essay-1" class="reflection-card-link"> <div class="reflection-thumb">
+                                    <img src="images/reflections/different.jpg" alt="Reflection: title_1">
+                                </div> <h3 class="reflection-title">Magna sed consequat tempus</h3> <p class="reflection-excerpt">Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> </a>
+                        </article>
+                        <!-- Card 2 -->
+                        <article class="reflection-card">
+                            <a href="reflections.html#essay-2" class="reflection-card-link"> <div class="reflection-thumb">
+                                    <img src="images/reflections/02.jpg" alt="Reflection: title_2">
+                                </div> <h3 class="reflection-title">Ultricies lacinia interdum</h3> <p class="reflection-excerpt">Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p> </a>
+                        </article>
+                        <!-- 你继续复制增加卡片：essay-3, essay-4... -->
+                        <!--
+      <article class="reflection-card">
+        <a href="reflections.html#essay-3" class="reflection-card-link">
+          <div class="reflection-thumb"><img src="images/reflections/03.jpg" alt="Reflection: title_3"></div>
+          <h3 class="reflection-title">title_3</h3>
+          <p class="reflection-excerpt">Short preview text.</p>
+        </a>
+      </article>
+      -->
+                    </div>
+                    <button class="rail-btn rail-next" type="button" aria-label="Scroll reflections right">
+                        <span class="icon solid fa-angle-right"></span>
+                    </button>
+                    <!-- subtle fade to hint scroll -->
+                    <div class="rail-fade rail-fade-left" aria-hidden="true"></div>
+                    <div class="rail-fade rail-fade-right" aria-hidden="true"></div>
+                </div>
+                <ul class="actions">
                     <li>
-                        <a href="reflections.html#essay-1" class="button">View All</a>
-                    </li>                     
-                </ul>                 
-            </section>             
+                        <a href="reflections.html" class="button">View All</a>
+                    </li>
+                </ul>
+            </section>
             <!-- Three -->             
             <section id="contact"> 
                 <h2>CONTACT</h2> 
@@ -625,5 +649,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         <script src="assets/js/main.js"></script>         
         <script src="pgia/lib/pgia.js"></script>
         <script src="assets/js/nav-scroll.js"></script>
+        <script src="assets/js/reflections-rail.js"></script>
     </body>     
 </html>

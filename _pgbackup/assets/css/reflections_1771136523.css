@@ -1,0 +1,150 @@
+/* ==============================
+   Essays Stack (Minimal Editorial)
+   ============================== */
+/* A comfortable reading column inside #main */
+.essays-stack {
+    max-width: 46em;
+
+    /* tighter than #main max-width; improves reading */
+    margin: 0;
+
+    /* keep left aligned within #main */
+}
+
+/* Each essay spacing */
+.essay {
+    padding-top: 0.5em;
+}
+
+/* header typography */
+.essay-header {
+    margin-bottom: 1.2em;
+}
+
+.essay-title {
+    margin: 0 0 0.55em 0;
+    font-size: 1.9em;
+
+    /* stronger hierarchy than default h2 */
+    line-height: 1.25em;
+    letter-spacing: 0.01em;
+}
+
+.essay-subtitle {
+    margin: 0 0 0.9em 0;
+    font-size: 1.05em;
+    line-height: 1.6em;
+    color: #b2b2b2;
+    font-style: italic;
+    max-width: 40em;
+}
+
+/* meta line (simple, minimal) */
+.essay-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55em;
+    align-items: center;
+    font-size: 0.85em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #a2a2a2;
+}
+
+.essay-meta-item {
+    display: inline-flex;
+    gap: 0.5em;
+    align-items: baseline;
+}
+
+.meta-label {
+    color: #787878;
+    letter-spacing: 0.08em;
+}
+
+.meta-dot {
+    opacity: 0.5;
+}
+
+/* unified figure position + size */
+.essay-figure {
+    margin: 1.35em 0 1.35em 0;
+}
+
+.essay-figure img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    /* unified size across essays */
+    height: auto;
+    object-fit: cover;
+
+    /* crops consistently */
+    border-radius: 0.35em;
+
+    /* matches your theme */
+    display: block;
+}
+
+/* caption (very subtle) */
+.essay-caption {
+    margin-top: 0.6em;
+    font-size: 0.85em;
+    line-height: 1.6em;
+    color: #b2b2b2;
+}
+
+/* content spacing */
+.essay-content h3 {
+    margin: 1.4em 0 0.65em 0;
+    font-size: 1.15em;
+    line-height: 1.4em;
+}
+
+.essay-content p {
+    margin: 0 0 1em 0;
+}
+
+/* minimal divider (less heavy than default hr) */
+.essay-divider {
+    border: 0;
+    border-bottom: solid 2px #efefef;
+    margin: 3.2em 0;
+    width: 6em;
+
+    /* small line = more designed, less noisy */
+}
+
+/* anchor scroll comfort (works with your nav) */
+#essay-1,
+#essay-2,
+#essay-3,
+#essay-4 {
+    scroll-margin-top: 1.4em;
+}
+
+/* responsive: keep readable */
+@media screen and (max-width: 736px) {
+    .essays-stack {
+        max-width: 100%;
+    }
+
+    .essay-title {
+        font-size: 1.55em;
+    }
+
+    .essay-subtitle {
+        font-size: 1em;
+    }
+
+    .essay-figure img {
+        aspect-ratio: 4 / 3;
+
+        /* on small screens, less wide looks better */
+    }
+
+    .essay-divider {
+        width: 5em;
+        margin: 2.6em 0;
+    }
+}
