@@ -1,0 +1,329 @@
+/* ==============================
+   Reflections Preview (Horizontal Rail)
+   Minimal / Natural / Strata-friendly
+   ============================== */
+.reflections-rail-section h2 {
+    margin-bottom: 0.9em;
+}
+
+/* wrapper */
+.reflections-rail {
+    position: relative;
+    margin-top: 0.25em;
+}
+
+/* track = horizontally scrollable area */
+.reflections-track {
+    display: flex;
+    gap: 1.25em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25em 0.25em 0.75em 0.25em;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    /* keep it clean */
+    scrollbar-width: none;
+
+    /* Firefox */
+}
+
+.reflections-track::-webkit-scrollbar {
+    display: none;
+
+    /* Chrome/Safari */
+}
+
+/* each card */
+.reflection-card {
+    flex: 0 0 auto;
+    width: 18.5em;
+
+    /* card width; adjust to taste */
+    scroll-snap-align: start;
+}
+
+/* link reset */
+.reflection-card-link {
+    display: block;
+    border-bottom: none;
+    text-decoration: none;
+
+    /* minimal frame */
+    border: solid 2px #efefef;
+    border-radius: 0.45em;
+    background: #fff;
+    padding: 0.95em;
+    transition: border-color 0.18s ease-in-out, transform 0.18s ease-in-out;
+}
+
+/* subtle hover (keep minimal) */
+.reflection-card-link:hover {
+    border-color: rgba(97, 155, 226, 0.6);
+    transform: translateY(-2px);
+}
+
+/* unified thumbnail size + ratio */
+.reflection-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    /* 统一比例：16:9（你也可以换成 3/2 更摄影感） */
+    border-radius: 0.35em;
+    overflow: hidden;
+    background: #f7f7f7;
+    margin-bottom: 0.9em;
+}
+
+.reflection-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* 保证不变形，自动裁剪 */
+    display: block;
+}
+
+/* text */
+.reflection-title {
+    font-size: 1.02em;
+    margin: 0 0 0.45em 0;
+    line-height: 1.45em;
+}
+
+/* clamp excerpt to keep rail compact */
+.reflection-excerpt {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.6em;
+    color: #787878;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+
+    /* preview area: 2 lines max */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* fade edges to hint scroll */
+.rail-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3.25em;
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+.rail-fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+.rail-fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* arrow buttons (optional) */
+.rail-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.6em;
+    height: 2.6em;
+    border-radius: 999px;
+    border: solid 2px #efefef;
+    background: rgba(255, 255, 255, 0.92);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.18s ease-in-out, background-color 0.18s ease-in-out;
+}
+
+.rail-btn:hover {
+    border-color: rgba(97, 155, 226, 0.7);
+    background: rgba(255, 255, 255, 1);
+}
+
+.rail-prev {
+    left: -0.6em;
+}
+
+.rail-next {
+    right: -0.6em;
+}
+
+/* On smaller screens: hide arrows, let swipe do the work */
+@media screen and (max-width: 736px) {
+    .rail-btn {
+        display: none;
+    }
+
+    .rail-fade {
+        width: 2.2em;
+    }
+
+    .reflection-card {
+        width: 16.5em;
+    }
+
+    .reflection-thumb {
+        aspect-ratio: 4 / 3;
+    }
+
+    /* 手机更舒服一点 */
+}
+
+/* ==============================
+   Essays Stack (Minimal Editorial)
+   ============================== */
+/* A comfortable reading column inside #main */
+.essays-stack {
+    max-width: 46em;
+
+    /* tighter than #main max-width; improves reading */
+    margin: 0;
+
+    /* keep left aligned within #main */
+}
+
+/* Each essay spacing */
+.essay {
+    padding-top: 0.5em;
+}
+
+/* header typography */
+.essay-header {
+    margin-bottom: 1.2em;
+}
+
+.essay-title {
+    margin: 0 0 0.55em 0;
+    font-size: 1.9em;
+
+    /* stronger hierarchy than default h2 */
+    line-height: 1.25em;
+    letter-spacing: 0.01em;
+}
+
+.essay-subtitle {
+    margin: 0 0 0.9em 0;
+    font-size: 1.05em;
+    line-height: 1.6em;
+    color: #b2b2b2;
+    font-style: italic;
+    max-width: 40em;
+}
+
+/* meta line (simple, minimal) */
+.essay-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55em;
+    align-items: center;
+    font-size: 0.85em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #a2a2a2;
+}
+
+.essay-meta-item {
+    display: inline-flex;
+    gap: 0.5em;
+    align-items: baseline;
+}
+
+.meta-label {
+    color: #787878;
+    letter-spacing: 0.08em;
+}
+
+.meta-dot {
+    opacity: 0.5;
+}
+
+/* unified figure position + size */
+.essay-figure {
+    margin: 1.35em 0 1.35em 0;
+}
+
+.essay-figure img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    /* unified size across essays */
+    height: auto;
+    object-fit: cover;
+
+    /* crops consistently */
+    border-radius: 0.35em;
+
+    /* matches your theme */
+    display: block;
+}
+
+/* caption (very subtle) */
+.essay-caption {
+    margin-top: 0.6em;
+    font-size: 0.85em;
+    line-height: 1.6em;
+    color: #b2b2b2;
+}
+
+/* content spacing */
+.essay-content h3 {
+    margin: 1.4em 0 0.65em 0;
+    font-size: 1.15em;
+    line-height: 1.4em;
+}
+
+.essay-content p {
+    margin: 0 0 1em 0;
+}
+
+/* minimal divider (less heavy than default hr) */
+.essay-divider {
+    border: 0;
+    border-bottom: solid 2px #efefef;
+    margin: 3.2em 0;
+    width: 6em;
+
+    /* small line = more designed, less noisy */
+}
+
+/* anchor scroll comfort (works with your nav) */
+#essay-1,
+#essay-2,
+#essay-3,
+#essay-4 {
+    scroll-margin-top: 1.4em;
+}
+
+/* responsive: keep readable */
+@media screen and (max-width: 736px) {
+    .essays-stack {
+        max-width: 100%;
+    }
+
+    .essay-title {
+        font-size: 1.55em;
+    }
+
+    .essay-subtitle {
+        font-size: 1em;
+    }
+
+    .essay-figure img {
+        aspect-ratio: 4 / 3;
+
+        /* on small screens, less wide looks better */
+    }
+
+    .essay-divider {
+        width: 5em;
+        margin: 2.6em 0;
+    }
+}
